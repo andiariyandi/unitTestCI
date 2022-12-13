@@ -19,6 +19,20 @@ class TestUnit extends CI_Controller {
         return $oriPrice-$disc;
     }
 
+    private function wordCounter($sentence)
+    {
+        // return count(explode(" ", $sentence));
+        return str_word_count($sentence);
+    }
+    public function testWordCounter()
+    {
+        $test = $this->wordCounter("name andi");
+        $expeted_result = 2;
+        $test_name= "Word Counter";
+        echo $this->unit->run($test, $expeted_result, $test_name);
+    }
+
+
     public function testCalDis()
     {
         $test = $this->calDisc(50, 1000);
